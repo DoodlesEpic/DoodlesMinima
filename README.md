@@ -38,6 +38,27 @@ Refers to files within the `_layouts` directory, that define the markup for your
 - `page.html` &mdash; The layout for your documents that contain FrontMatter, but are not posts.
 - `post.html` &mdash; The layout for your posts.
 
+#### Base Layout
+
+From Minima v3 onwards, the base layout is named **`base.html`** instead of `default.html` to avoid confusing new users into
+assuming that name holds special status.
+
+Users migrating from older versions with customized `_layouts/default.html` are advised to rename their copy to
+`_layouts/base.html`. Migrating users with additional customized layouts may either update front matter references to former
+`default.html` layout or create a new `default.html` layout referencing the current `base.html`, whichever route being the
+easiest:
+
+```
+---
+# new `_layouts/default.html` for backwards-compatibility when multiple
+# layouts have been customized.
+
+layout: base
+---
+
+{{ content }}
+```
+
 #### Home Layout
 
 `home.html` is a flexible HTML layout for the site's landing-page / home-page / index-page. <br/>
@@ -127,8 +148,9 @@ Therefore, your `assets/css/style.scss` should contain the following at minimum:
 ---
 ---
 
-@import "minima/skins/{{ site.minima.skin | default: 'classic' }}";
-@import "minima/initialize";
+@import
+  "minima/skins/{{ site.minima.skin | default: 'classic' }}",
+  "minima/initialize";
 ```
 
 #### Skins
@@ -166,10 +188,17 @@ summarized in the following table:
 
 ##### Available skins
 
-- classic
-- dark
-- solarized
-- solarized-dark
+| Skin setting    | Description                                                                       |
+| --------------- | --------------------------------------------------------------------------------- |
+| classic         | Default, light color scheme.                                                      |
+| dark            | Dark variant of the classic skin.                                                 |
+| auto            | _Adaptive skin_ based on the default classic and dark skins.                      |
+| solarized       | _Adaptive skin_ for [solarized](https://github.com/solarized) color scheme skins. |
+| solarized-light | Light variant of solarized color scheme.                                          |
+| solarized-dark  | Dark variant of solarized color scheme.                                           |
+
+_:bulb: Adaptive skins switch between the "light" and "dark" variants based on the user's operating system setting or browser setting
+(via CSS Media Query [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme))._
 
 ### Customize navigation links
 
@@ -240,8 +269,9 @@ To migrate existing metadata, update your config file and any reference to the o
 
 ### Social networks
 
-You can add links to the accounts you have on other sites, with respective icon, by adding one or more of the following options in your config.
-From `Minima-3.0` onwards, the usernames are to be nested under `minima.social_links`, with the keys being simply the social-network's name:
+You can add links to the accounts you have on other sites, with respective icon as an SVG graphic, via the config file.
+From `Minima-3.0` onwards, the social media data is sourced from config key `minima.social_links`. It is a list of key-value pairs, each entry
+corresponding to a link rendered in the footer. For example, to render links to Jekyll GitHub repository and twitter account, one should have:
 
 ```yaml
 minima:

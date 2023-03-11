@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |spec|
-  spec.name     = "minima"
-  spec.version  = "2.5.1"
+  spec.name     = "doodles_minima"
+
+  spec.version  = "3.0.0.dev"
   spec.authors  = ["Eduardo Moraes"]
   spec.email    = ["moraes.eduardo@protonmail.com"]
 
