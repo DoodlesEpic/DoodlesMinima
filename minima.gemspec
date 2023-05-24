@@ -3,7 +3,7 @@
 Gem::Specification.new do |spec|
   spec.name     = "doodles_minima"
 
-  spec.version  = "3.0.1.dev"
+  spec.version  = "3.0.2.dev"
   spec.authors  = ["Eduardo Moraes"]
   spec.email    = ["moraes.eduardo@protonmail.com"]
 
