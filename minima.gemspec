@@ -3,12 +3,12 @@
 Gem::Specification.new do |spec|
   spec.name     = "doodles_minima"
 
-  spec.version  = "3.0.0.dev"
+  spec.version  = "3.0.1.dev"
   spec.authors  = ["Eduardo Moraes"]
   spec.email    = ["moraes.eduardo@protonmail.com"]
 
   spec.summary  = "Forked from Jekyll Minima base theme, a beautiful, minimal theme for Jekyll."
-  spec.homepage = "https://github.com/DoodlesEpic/minima"
+  spec.homepage = "https://github.com/DoodlesEpic/DoodlesMinima"
   spec.license  = "MIT"
 
   spec.metadata["plugin_type"] = "theme"
