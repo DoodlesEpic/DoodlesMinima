@@ -50,7 +50,7 @@ minima:
 
 # Build settings
 
-theme: minima
+theme: doodles_minima
 
 plugins:
   - jekyll-feed
